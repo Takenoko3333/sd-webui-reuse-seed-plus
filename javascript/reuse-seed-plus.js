@@ -48,7 +48,7 @@ function createReuseSeedPlusArea() {
   const label = document.createElement("label");
   label.id = "reuse_seed_plus_label";
   label.className = "svelte-1ojmf70";
-  label.style = "margin-left: 0.4em";
+  label.style = "display: inline-block;";
   label.setAttribute(
     "title",
     "Enable reuse seed and ADtailer at the same time when enabling Hires.fix"

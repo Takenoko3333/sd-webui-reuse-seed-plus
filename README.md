@@ -26,11 +26,17 @@ https://github.com/Takenoko3333/sd-webui-reuse-seed-plus.git
 
 # 変更履歴
 
+## [0.1.2] - 2024-6-6
+
+### 修正
+
+- css を修正
+
 ## [0.1.1] - 2024-6-6
 
 ### 修正
 
-- READMEを修正
+- README を修正
 
 ## [0.1.0] - 2024-6-6
 
@@ -68,6 +74,12 @@ https://github.com/Takenoko3333/sd-webui-reuse-seed-plus.git
 <br>
 
 # Changelog
+
+## [0.1.2] - 2024-6-6
+
+### Fixed
+
+- Fixed css
 
 ## [0.1.1] - 2024-6-6
 
