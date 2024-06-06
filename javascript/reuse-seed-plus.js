@@ -2,7 +2,7 @@ function handleHiresFixChange() {
   const hiresFixCheckbox = document.getElementById(
     "txt2img_hr-visible-checkbox"
   );
-  const dynamicCheckbox = document.getElementById("reuse_seed_plus_checkbox");
+  const dynamicCheckbox = document.getElementById("reuse_seed_plus_toggle");
   const targetCheckbox1 = document.querySelector(
     "#script_txt2img_adetailer_ad_enable input"
   );
@@ -10,7 +10,7 @@ function handleHiresFixChange() {
   const targetButton2 = document.getElementById("txt2img_reuse_seed");
 
   if (dynamicCheckbox.checked) {
-    setTimeout(function() {
+    setTimeout(function () {
       if (hiresFixCheckbox.checked) {
         if (targetCheckbox1) {
           targetCheckbox1.checked = true;
@@ -44,7 +44,7 @@ function createReuseSeedPlusArea() {
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.id = "reuse_seed_plus_checkbox";
+  checkbox.id = "reuse_seed_plus_toggle";
   checkbox.className = "svelte-1ojmf70";
 
   const label = document.createElement("label");

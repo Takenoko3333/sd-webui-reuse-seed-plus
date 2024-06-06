@@ -26,6 +26,12 @@ https://github.com/Takenoko3333/sd-webui-reuse-seed-plus.git
 
 # 変更履歴
 
+## [0.1.4] - 2024-6-6
+
+### 修正
+
+- チェックボックスの id を修正
+
 ## [0.1.3] - 2024-6-6
 
 ### 修正
@@ -80,6 +86,12 @@ https://github.com/Takenoko3333/sd-webui-reuse-seed-plus.git
 <br>
 
 # Changelog
+
+## [0.1.4] - 2024-6-6
+
+### Fixed
+
+- Fixed chexbox id name
 
 ## [0.1.3] - 2024-6-6
 
