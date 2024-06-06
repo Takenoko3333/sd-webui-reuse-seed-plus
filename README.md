@@ -1,4 +1,4 @@
-# sd-webui-xnview-pnginfo
+# sd-webui-reuse-seed-plus
 
 [日本語](#日本語) | [English](#english)
 
