@@ -93,7 +93,7 @@ https://github.com/Takenoko3333/sd-webui-reuse-seed-plus.git
 ### Fixed
 
 - Fixed chexbox id name
-- Fixed chexbox selecter
+- Fixed chexbox selector
 
 ## [0.1.3] - 2024-6-6
 
