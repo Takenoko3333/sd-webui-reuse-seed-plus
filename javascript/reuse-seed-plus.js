@@ -10,19 +10,21 @@ function handleHiresFixChange() {
   const targetButton2 = document.getElementById("txt2img_reuse_seed");
 
   if (dynamicCheckbox.checked) {
-    if (hiresFixCheckbox.checked) {
-      if (targetCheckbox1) {
-        targetCheckbox1.checked = true;
-        targetCheckbox1.dispatchEvent(new Event("change", { bubbles: true }));
+    setTimeout(function() {
+      if (hiresFixCheckbox.checked) {
+        if (targetCheckbox1) {
+          targetCheckbox1.checked = true;
+          targetCheckbox1.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        if (targetButton2) targetButton2.click();
+      } else {
+        if (targetCheckbox1) {
+          targetCheckbox1.checked = false;
+          targetCheckbox1.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        if (targetButton1) targetButton1.click();
       }
-      if (targetButton2) targetButton2.click();
-    } else {
-      if (targetCheckbox1) {
-        targetCheckbox1.checked = false;
-        targetCheckbox1.dispatchEvent(new Event("change", { bubbles: true }));
-      }
-      if (targetButton1) targetButton1.click();
-    }
+    }, 10);
   }
 }
 
