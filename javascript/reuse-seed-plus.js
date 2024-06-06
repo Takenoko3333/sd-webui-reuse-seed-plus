@@ -38,7 +38,7 @@ function createReuseSeedPlusArea() {
 
   const reuseSeedPlusArea = document.createElement("div");
   reuseSeedPlusArea.id = "reuse_seed_plus";
-  reuseSeedPlusArea.style = "padding: 0.2em 0em";
+  reuseSeedPlusArea.style = "padding: 0.4em 0 0.2em";
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
