@@ -3,7 +3,7 @@ function handleHiresFixChange() {
     "txt2img_hr-visible-checkbox"
   );
   const dynamicCheckbox = document.querySelector(
-    "#reuse_seed_plus reuse_seed_plus_toggle"
+    "#reuse_seed_plus #reuse_seed_plus_toggle"
   );
   const targetCheckbox1 = document.querySelector(
     "#script_txt2img_adetailer_ad_enable input"
