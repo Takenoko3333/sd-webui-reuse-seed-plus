@@ -3,8 +3,8 @@ function handleHiresFixChange() {
     "txt2img_hr-visible-checkbox"
   );
   const dynamicCheckbox = document.getElementById("reuse_seed_plus_checkbox");
-  const targetCheckbox1 = document.getElementById(
-    "script_txt2img_adetailer_ad_enable input"
+  const targetCheckbox1 = document.querySelector(
+    "#script_txt2img_adetailer_ad_enable input"
   );
   const targetButton1 = document.getElementById("txt2img_random_seed");
   const targetButton2 = document.getElementById("txt2img_reuse_seed");
