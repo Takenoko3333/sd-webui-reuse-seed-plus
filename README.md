@@ -10,7 +10,6 @@
 - Hires.fix ボタンの上に Hires.fix with ♻️ & ADtailer のチェックボックスが追加されます。
 - Hires.fix with ♻️ & ADtailer のチェックボックスがオンの場合、Hires.fix をオンにした時に Reuse seed と ADtailer を同時に有効化します。Hires.fix をオフにした時は Random seed を有効化し ADtailer をオフにします。
 - ADtailer がインストールされていない場合は ADtailer の操作は無視され、Reuse seed(Random seed)のみが連動します。
-
   <br><br>
   ![image](images/image.png)
   <br><br>
@@ -48,7 +47,6 @@ Released under the [MIT License](https://opensource.org/licenses/mit-license.php
 - A checkbox labeled Hires.fix with ♻️ & ADtailer is added above the Hires.fix button.
 - When the Hires.fix with ♻️ & ADtailer checkbox is on, enabling Hires.fix also enables both Reuse seed and ADtailer. When Hires.fix is turned off, Random seed is enabled and ADtailer is turned off.
 - If ADtailer is not installed, the ADtailer operation is ignored, and only Reuse seed (Random seed) will be toggled accordingly.
-
   <br><br>
   ![image](images/image.png)
   <br><br>
