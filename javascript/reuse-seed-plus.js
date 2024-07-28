@@ -1,6 +1,17 @@
+// Seed Reuse Generate button delay time
+function reuseDelayTime() {
+  let reuseDelayTime = 500;
+  const reuseDelayTimeInput = document.getElementById("reuse-seed-delay-time");
+  if (reuseDelayTimeInput) {
+    const reuseDelayTimeInputValue = reuseDelayTimeInput.value;
+    if (parseInt(reuseDelayTimeInputValue) != reuseDelayTime)
+      reuseDelayTime = parseInt(reuseDelayTimeInputValue);
+  }
+  return reuseDelayTime;
+}
+
 // Add Generate Button (🎲, ♻, +1) to txt2img and img2img
 function addButtons(tab) {
-  const reuseDelayTime = 500; // If the seed is not reused, it may be a good idea to increase the delay time.
   const normalDelayTime = 10;
   const generateButton = document.getElementById(`${tab}_generate`);
   const reuseSeedButton = document.getElementById(`${tab}_reuse_seed`);
@@ -42,7 +53,7 @@ function addButtons(tab) {
       `<button id="${reuseGenerateButtonId}" class="${buttonClass}" style="min-width:0;" title="When a seed from the previous generation is available, it is reused to generate">♻</button>`,
       function () {
         reuseSeedButton.click();
-        delayGenerate(reuseDelayTime);
+        delayGenerate(reuseDelayTime());
       }
     )
   );
@@ -96,26 +107,40 @@ function createReuseSeedPlusArea() {
   );
   const settings = document.getElementById("txt2img_settings");
   const accordions = document.getElementById("txt2img_accordions");
+  const adetailerCheckbox =
+    document.querySelector("#script_txt2img_adetailer_ad_enable input") ||
+    document.querySelector(
+      "#script_txt2img_adetailer_ad_main_accordion-visible-checkbox"
+    );
+  const tiledvaeCheckbox = document.getElementById(
+    "MDV-t2i-enabled-visible-checkbox"
+  );
 
   if (!accordions || reuseSeedPlus) return;
 
   const reuseSeedPlusArea = document.createElement("div");
   reuseSeedPlusArea.id = "reuse_seed_plus";
   reuseSeedPlusArea.style =
-    "display: flex; gap: 0.6em 1em; padding: 0.4em 0 0.2em";
+    "display: flex; flex-wrap: wrap; gap: 0.6em 1em; padding: 0.4em 0 0.2em";
 
   // Create checkbox item
   ["rsp_reuse_seed_plus", "rsp_adetailer", "rsp_tiled_vae"].forEach(function (
     idName,
     index
   ) {
+    if (idName === "rsp_adetailer" && !adetailerCheckbox) return;
+    if (idName === "rsp_tiled_vae" && !tiledvaeCheckbox) return;
+
     const labelTitle = [
-      "Enable 'Reuse seed' and 'ADetailer' when enabling Hires.fix",
+      adetailerCheckbox
+        ? "Enable 'Reuse seed' and 'ADetailer' when enabling Hires.fix"
+        : "Enable 'Reuse seed' when enabling Hires.fix",
       "Enable 'ADetailer' when enabling Hires.fix",
       "Enable 'Tiled VAE' when enabling Hires.fix",
     ];
+
     const spanText = [
-      "Hires.fix with ♻️ & ADetailer",
+      adetailerCheckbox ? "Hires.fix with ♻️ & ADetailer" : "Hires.fix with ♻️",
       "Hires.fix with ADetailer",
       "Hires.fix with Tiled VAE",
     ];
@@ -139,6 +164,26 @@ function createReuseSeedPlusArea() {
     reuseSeedPlusArea.appendChild(label);
   });
 
+  reuseSeedPlusArea.innerHTML += `
+    <div>
+      <div class="head svelte-1cl284s">
+        <label title="If the seed was not reused when the Seed Reuse Generate button was used, it is recommended to increase the value">
+          <span data-testid="block-info" style="padding-right: 10px">Reuse delay time</span>
+        </label>
+        <input
+          data-testid="number-input"
+          type="number"
+          min="1"
+          max="5000"
+          step="1"
+          id="reuse-seed-delay-time"
+          class="svelte-1cl284s"
+          value="${reuseDelayTime()}"
+        >
+      </div>
+    </div>
+  `;
+
   if (accordions) {
     settings.insertBefore(reuseSeedPlusArea, accordions);
   }
@@ -159,11 +204,12 @@ function handleHiresFixChange() {
   const tiledVaeToggle = document.querySelector(
     "#reuse_seed_plus #rsp_tiled_vae_toggle" // Use of querySelector for conflict avoidance
   );
-
   // ADetailer
-  const targetCheckbox1 = document.querySelector(
-    "#script_txt2img_adetailer_ad_enable input"
-  );
+  const targetCheckbox1 =
+    document.querySelector("#script_txt2img_adetailer_ad_enable input") ||
+    document.querySelector(
+      "#script_txt2img_adetailer_ad_main_accordion-visible-checkbox"
+    );
   // Tiled VAE
   const targetCheckbox2 = document.getElementById(
     "MDV-t2i-enabled-visible-checkbox"
